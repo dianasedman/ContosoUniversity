@@ -14,7 +14,7 @@ namespace ContosoUniversity.Data
                 return; //DB has been seeded
             }
 
-            var students = new Student[] 
+            var students = new Student[]
             {
                 new Student{FirstMidName="Carson",LastName="Alexander",EnrollmentDate=DateTime.Parse("2005-09-01")},
                 new Student{FirstMidName="Meredith",LastName="Alonso",EnrollmentDate=DateTime.Parse("2002-09-01")},
@@ -41,7 +41,7 @@ namespace ContosoUniversity.Data
                 new Course{CourseID=2021,Title="Composition",Credits=3},
                 new Course{CourseID=2042,Title="Literature",Credits=4}
             };
-            foreach (Course c in courses) 
+            foreach (Course c in courses)
             {
                 context.Courses.Add(c);
             }

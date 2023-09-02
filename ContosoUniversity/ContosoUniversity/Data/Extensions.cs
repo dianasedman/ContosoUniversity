@@ -1,5 +1,8 @@
 ﻿namespace ContosoUniversity.Data;
 
+//For NET 6
+//https://learn.microsoft.com/en-us/training/modules/persist-data-ef-core/4-interacting-data
+
 public static class Extensions
 {
     public static void CreateDbIfNotExists(this IHost host)

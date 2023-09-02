@@ -41,6 +41,8 @@ namespace ContosoUniversity
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.CreateDbIfNotExists();
 
+            //Dispose the context when the Initialize method completes as shown in the following code:
+
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -61,7 +63,7 @@ namespace ContosoUniversity
 
         }
 
-        private static void CreateDbIfNotExists(IHost host)
+        public static void CreateDbIfNotExists(IHost host)
         {
             using (var scope = host.Services.CreateScope())
             {
