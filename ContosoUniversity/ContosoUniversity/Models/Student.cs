@@ -1,4 +1,7 @@
-﻿namespace ContosoUniversity.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace ContosoUniversity.Models
 {
     public class Student
     {
