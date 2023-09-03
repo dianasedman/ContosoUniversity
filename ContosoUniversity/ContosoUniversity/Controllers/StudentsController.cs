@@ -25,8 +25,8 @@ namespace ContosoUniversity.Controllers
             string currentFilter,
             string searchString,
             int? pageNumber)
-        {
 
+        {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
@@ -44,7 +44,6 @@ namespace ContosoUniversity.Controllers
 
             var students = from s in _context.Students
                            select s;
-
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
@@ -67,7 +66,7 @@ namespace ContosoUniversity.Controllers
                     break;
             }
             int pageSize = 3;
-            return View(await students.AsNoTracking().ToListAsync());
+            return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Students/Details/5
