@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20230903154130_MaxLengthOnNames")]
+    [Migration("20230903163603_MaxLengthOnNames")]
     partial class MaxLengthOnNames
     {
         /// <inheritdoc />
@@ -80,7 +80,8 @@ namespace ContosoUniversity.Migrations
 
                     b.Property<string>("FirstMidName")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("FirstName");
 
                     b.Property<string>("LastName")
                         .HasMaxLength(50)
