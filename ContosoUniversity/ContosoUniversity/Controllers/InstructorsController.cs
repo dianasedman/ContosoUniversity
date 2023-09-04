@@ -9,6 +9,7 @@ using ContosoUniversity.Data;
 using ContosoUniversity.Models;
 using ContosoUniversity.Models.SchoolViewModels;
 
+
 namespace ContosoUniversity.Controllers
 {
     public class InstructorsController : Controller
@@ -48,8 +49,13 @@ namespace ContosoUniversity.Controllers
             if (courseID != null)
             {
                 ViewData["CourseID"] = courseID.Value;
-                viewModel.Enrollments = viewModel.Courses.Where(
-                    x => x.CourseID == courseID).Single().Enrollments;
+                var selectedCourse = viewModel.Courses.Where(x => x.CourseID == courseID).Single();
+                //await _context.Entry(selectedCourse).Collection(x => x.Enrollments).LoadAsync();
+                //foreach (Enrollment enrollment in selectedCourse.Enrollments)
+                //{
+                //    await _context.Entry(enrollment).Reference(x => x.Student).LoadAsync();
+                //}
+                viewModel.Enrollments = selectedCourse.Enrollments;
             }
 
             return View(viewModel);
