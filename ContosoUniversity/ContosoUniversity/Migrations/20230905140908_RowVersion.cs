@@ -10,20 +10,19 @@ namespace ContosoUniversity.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<byte[]>(
+            migrationBuilder.RenameColumn(
                 name: "RowvVersion",
                 table: "Department",
-                type: "rowversion",
-                rowVersion: true,
-                nullable: true);
+                newName: "RowVersion");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "RowvVersion",
-                table: "Department");
+            migrationBuilder.RenameColumn(
+                name: "RowVersion",
+                table: "Department",
+                newName: "RowvVersion");
         }
     }
 }
